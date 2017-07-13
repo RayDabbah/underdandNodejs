@@ -1,20 +1,21 @@
 const Emitter = require('events');
+const event = require('./eventObj');
 
 var emtr = new Emitter()
 
-emtr.on('greet', function(){
+emtr.on(event.greet, function(){
     console.log('Someone greeted!!');
 });
 
-emtr.on('greet', function(){
+emtr.on(event.greet, function(){
     console.log('Someone double greeted!!');
 });
-emtr.emit('greet')
-emtr.on('jump', function(){
+emtr.emit(event.greet)
+emtr.on(event.jump, function(){
     console.log('Someone Jumped!!!!')
 })
-emtr.on('jump', function(){
+emtr.on(event.jump, function(){
     console.log('Someone else Jumped!!!!')
 })
-emtr.emit('jump')
+emtr.emit(event.jump)
 console.log(emtr)
